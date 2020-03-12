@@ -43,6 +43,17 @@
 			<version>2.2.4.RELEASE</version>
 		</dependency>
 
+		<!-- ************************* Dependências Utils ************************* -->
+		<!-- Commons Text: Tem métodos que nos facilitam trabalhar com String, 
+			como o "capitalizeFully" -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+
 
 		<!-- ************************* Dependências do Spring ************************* -->
 		<!-- Spring Core: Contém as estruturas fundamentais do Spring. As outras 
