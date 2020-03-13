@@ -3,10 +3,12 @@ package com.testes.spring.exemplo.empresas.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.testes.spring.exemplo.empresas.dtos.CnpjDto;
 import com.testes.spring.exemplo.empresas.services.EmpresaEnvelopeService;
 
 @RestController
@@ -15,10 +17,14 @@ public class EmpresaEnvelopeController {
 	@Autowired
 	private EmpresaEnvelopeService service;
 
-	@GetMapping("/{cnpj}")
-	public ResponseEntity<Object> uploadLoteCte(@PathVariable(name = "cnpj") String cnpj) {
-		service.salvarCnpj(cnpj);
+	@PostMapping
+	public ResponseEntity<Object> salvarCnpj(@RequestBody CnpjDto cnpjDto) {
+		service.salvarCnpj(cnpjDto.getCnpj());
 		return ResponseEntity.ok().build();
 	}
 
+	@GetMapping
+	public ResponseEntity<Object> agruparPorMunicipio() {
+		return ResponseEntity.ok(service.agruparPorMunicipio());
+	}
 }
